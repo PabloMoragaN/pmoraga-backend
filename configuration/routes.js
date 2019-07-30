@@ -1,17 +1,15 @@
 
-var createDefaultRoutes = function (app) {
+var createMailRoutes = function (app) {
+
+    let controller = require('../controllers/mailer_controller')(app);
 
     // select
-    app.get('/', controller.getById);
+    app.post('/send-email', controller.sendEmail);
 
-    // insert
+    /*
     app.post('/', controller.add);
-
-    // update
     app.put('/', controller.update);
-
-    // delete 
-    app.delete('/', controller.remove);
+    app.delete('/', controller.remove);*/
 }
 
 
@@ -19,5 +17,5 @@ var createDefaultRoutes = function (app) {
 
 module.exports = (app) => {
 
-    createDefaultRoutes(app);
+    createMailRoutes(app);
 }
